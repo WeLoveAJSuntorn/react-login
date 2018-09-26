@@ -4,10 +4,12 @@ import Login from './Components/Login';
 import { Route } from 'react-router-dom';
 import HomePage from './Components/HomePage'
 import DashBoard from './Components/DashBoard';
+import Board from './Components/Board';
 
 const loginPage = () => (<Login/>)
 const homePage = () => (<HomePage/>)
 const dashboard = () => (<DashBoard/>)
+const board = () => (<Board/>)
 
 class App extends Component {
   render() {

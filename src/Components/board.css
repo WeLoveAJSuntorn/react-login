@@ -1,0 +1,17 @@
+body{
+    background: #fafafa;
+}
+
+.margin{
+    margin-top: 10%;
+}
+
+.align{
+    text-align: left
+}
+
+.pic_size{
+    height: 540px;
+    width: 960px;
+    
+}
