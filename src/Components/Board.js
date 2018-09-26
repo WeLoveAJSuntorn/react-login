@@ -11,7 +11,7 @@ export default class DashBoard extends Component {
           <nav>
             <div className="nav-wrapper">
                 <ul className="right">
-                    <li><a href="/dashboard">About us</a></li>
+                    <li><a href="/aboutus">About us</a></li>
                 </ul>
             </div> 
           </nav>

@@ -51,15 +51,49 @@ export default class Login extends Component {
 
     render(){
         return(
-            <div className = "login">
-            <form onSubmit={this.handleSubmit}>
-                <h1>Email : </h1>
-                <input  id = "email" value = {this.state.email} onChange = {this.changeHandler}/>
-                <h1>Password :</h1>
-                <input type = "password" id = "password" value = {this.state.password} onChange = {this.changeHandler}/>
-                <br/><input type = "submit" value="submit"/>
-            </form>
-            </div>
+            <body className = " panel">
+            <div className="container">
+               <div className="row">
+                   <div className="col s6 offset-s3">
+                   <div className="card-panel">
+                   
+                       <form onSubmit={this.handleSubmit}>
+                           <div className="row">
+                               <h1>Login</h1>
+                           </div>
+                           
+                           <div className="container">
+                               <div className="row">
+                                   <div  className="input-field col s12">
+                                       <i className="material-icons prefix">email</i>
+                                       <input  className="validator" id = "email" value = {this.state.email} onChange = {this.changeHandler}/>  
+                                       <label for="email">Email</label>
+                                   </div>
+                               </div>
+                               
+                               <div className="row">
+                                   <div  className="input-field col s12">
+                                   <i className="material-icons prefix">vpn_key</i>
+                                   <input type = "password" id = "password" value = {this.state.password} onChange = {this.changeHandler}/>
+                                   <label for="password">Password</label>
+                                   </div>
+                               </div>
+                               <div className="row">
+                                   <input className="btn green col s12" type ="submit" value="submit"/>
+                               </div>
+                               <div className="row">
+                               <p>No account?  <a href="/login">Create Account Here!</a></p>
+                               
+                               </div>
+                           </div>
+                           
+                           <br/>
+                       </form>
+                   </div> 
+                   </div>
+               </div>
+             </div>
+           </body>
         );
     }
 
