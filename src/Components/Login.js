@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
+import fireBase from '../fireBase'
 
-const dataBase = [
-    {email:"5910110044@psu.ac.th", password : "123"},
-    {email:"5910110419@psu.ac.th", password : "123"},
-    {email:"5910110095@psu.ac.th", password : "123"},
-    {email:"admin", password: "admin"},
-]
+const dbLogin = fireBase.database().ref().child('account');
+
 
 export default class Login extends Component {
 
@@ -13,8 +10,9 @@ export default class Login extends Component {
     constructor(props){
         super(props)
         this.state = {
-            email : "",
-            password : ""
+            email: "",
+            password: "",
+            mode: "login",
         }
     }
 
@@ -22,14 +20,24 @@ export default class Login extends Component {
         return (this.state.email.length > 0 && this.state.password.length)? true : false
     }
 
+    findAccount = (account) => {
+
+    }
+
     handleSubmit = (event) => {
         let self = this
         event.preventDefault();
-        let found = dataBase.find(function(element){
-            return self.state.email == element.email && self.state.password == element.password
-        });
-        if(found != undefined)
-            window.location.href = '/dashboard'; 
+        dbLogin.on('value', function(dbElement){
+            let found = dbElement.val().find(function(element){
+                console.log(element)
+                return self.state.email == element.email && self.state.password == element.password
+            })
+
+            if( found != undefined)
+                window.location.href = './dashboard'
+            else 
+                alert("account not found try again")
+        })
 
 
     }
@@ -44,13 +52,13 @@ export default class Login extends Component {
     render(){
         return(
             <div className = "login">
-                <form onSubmit={this.handleSubmit}>
-                    <h1>Email : </h1>
-                    <input  id = "email" value = {this.state.email} onChange = {this.changeHandler}/>
-                    <h1>Password :</h1>
-                    <input type = "password" id = "password" value = {this.state.password} onChange = {this.changeHandler}/>
-                    <br/><input type = "submit" value="submit"/>
-                </form>
+            <form onSubmit={this.handleSubmit}>
+                <h1>Email : </h1>
+                <input  id = "email" value = {this.state.email} onChange = {this.changeHandler}/>
+                <h1>Password :</h1>
+                <input type = "password" id = "password" value = {this.state.password} onChange = {this.changeHandler}/>
+                <br/><input type = "submit" value="submit"/>
+            </form>
             </div>
         );
     }
