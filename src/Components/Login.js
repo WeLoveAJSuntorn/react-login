@@ -20,9 +20,6 @@ export default class Login extends Component {
         return (this.state.email.length > 0 && this.state.password.length)? true : false
     }
 
-    findAccount = (account) => {
-
-    }
 
     handleSubmit = (event) => {
         let self = this
@@ -34,7 +31,7 @@ export default class Login extends Component {
             })
 
             if( found != undefined)
-                window.location.href = './dashboard'
+                window.location.href = './board'
             else 
                 alert("account not found try again")
         })
