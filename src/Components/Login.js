@@ -20,9 +20,6 @@ export default class Login extends Component {
         return (this.state.email.length > 0 && this.state.password.length)? true : false
     }
 
-    findAccount = (account) => {
-
-    }
 
     handleSubmit = (event) => {
         let self = this
@@ -34,7 +31,7 @@ export default class Login extends Component {
             })
 
             if( found != undefined)
-                window.location.href = './dashboard'
+                window.location.href = './board'
             else 
                 alert("account not found try again")
         })
@@ -56,7 +53,7 @@ export default class Login extends Component {
                 <h1>Email : </h1>
                 <input  id = "email" value = {this.state.email} onChange = {this.changeHandler}/>
                 <h1>Password :</h1>
-                <input type = "password" id = "password" value = {this.state.password} onChange = {this.changeHandler}/>
+                <input type = "password" id = "passworddashboard" value = {this.state.password} onChange = {this.changeHandler}/>
                 <br/><input type = "submit" value="submit"/>
             </form>
             </div>
